@@ -1,26 +1,27 @@
 function computerPlay(){
     let random = Math.floor(Math.random()*3) + 1;
 
-    if(random==1)  return 'rock';
-    else if(random==2)  return 'paper';
-    else           return 'scissor';
+    if(random==1)  return 'Rock';
+    else if(random==2)  return 'Paper';
+    else           return 'Scissor';
 }
 function capatalize(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 function whoIsWinner(playerSelection,computerSelection){
     playerSelection = capatalize(playerSelection);
+    computerSelection = capatalize(computerSelection);
     let str = "You ";
 
-    if(playerSelection=='paper' && computerSelection=='rock'){
+    if(playerSelection=='Paper' && computerSelection=='Rock'){
         str+="Win! Rock beats Paper";
         playerScore++;
     }
-    else if(playerSelection=='scissor' && computerSelection=='paper'){
+    else if(playerSelection=='Scissor' && computerSelection=='Paper'){
         str+="Win! Scissor beats Paper";
         playerScore++;
     }
-    else if(playerSelection=='rock' && computerSelection=='scissor'){
+    else if(playerSelection=='Rock' && computerSelection=='Scissor'){
         str+="Win! Rock beats Scissor";
         playerScore++;
     }
@@ -39,7 +40,9 @@ let playerScore = 0;
 let computerScore = 0;
 function game(){
     console.log("Welcome to game of Rock Paper Scissors");
-
+    
+    playerScore = 0;
+    computerScore = 0;
     for(let i=0;i<5;i++){
         const playerSelection = prompt("What do you choose? ");
         const computerSelection = computerPlay();
